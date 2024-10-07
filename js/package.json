@@ -1,0 +1,14 @@
+{
+  "name": "stripe-card-verification",
+  "version": "1.0.0",
+  "description": "API para verificar cartões de crédito usando Stripe",
+  "main": "0auth.js",
+  "scripts": {
+    "start": "node 0auth.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "stripe": "^8.0.0"
+  }
+}

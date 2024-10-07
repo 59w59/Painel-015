@@ -1,0 +1,127 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,400&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #060a0e;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #1a6fb8; /* Azul mais escuro */
+    background-image: linear-gradient(to bottom, #1a6fb8, #060a0e); /* Mesclando azul com preto */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Select containers dentro da sidebar */
+.select-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    color: #060a0e;
+}
+
+select:focus {
+    outline: none;
+    border-color: #1e91ed;
+    box-shadow: 0 0 5px #1e91ed;
+}
+
+/* Elemento para mostrar o crédito */
+.credit-container {
+    padding: 10px;
+    background-color: #fff;
+    color: #060a0e;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.credit-container span {
+    color: #1e91ed;
+}
+
+/* Conteúdo principal */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #f4f7f6;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    color: #060a0e;
+    font-size: 28px;
+}
+
+/* Grade de conteúdo */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #060a0e;
+}
+
+.card p {
+    color: #333;
+}
