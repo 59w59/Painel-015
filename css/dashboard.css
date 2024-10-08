@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-section {
+    background: linear-gradient(to right, #1e91ed, #060a0e);
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.section-features, .section-pricing, .section-contact {
+    padding: 50px 0;
+    text-align: center;
+    background-color: white;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature-cards .card {
+    width: 30%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.pricing-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.pricing-card {
+    width: 30%;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}

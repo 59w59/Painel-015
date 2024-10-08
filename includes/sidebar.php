@@ -1,26 +1,19 @@
-<?php
-// Buscar o papel (role) do usuário logado
-$stmt = $pdo->prepare("SELECT role FROM users WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
-$user = $stmt->fetch();
-?>
+<aside class="sidebar">
+    <div class="profile-section">
+        <img src="../image/logo_central.png" alt="Profile Picture" class="profile-pic"> <!-- Imagem de perfil -->
+        <h2><?php echo $_SESSION['usuario']; ?></h2>
+    </div>
 
-<div class="sidebar">
-    <h2>Checker</h2>
-    <ul>
-        <!-- Itens acessíveis a todos os usuários -->
-        <li><a href="chk_cc_full.php">Chk CC full</a></li>
-        <li><a href="chk_gg.php">Chk GG</a></li>
-        <li><a href="amazon.php">Amazon</a></li>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Opção 1</a></li>
+            <li><a href="#">Opção 2</a></li>
+            <li><a href="#">Opção 3</a></li>
+            <li><a href="#">Opção 4</a></li>
+        </ul>
+    </nav>
 
-        <!-- Itens acessíveis apenas para administradores -->
-        <?php if ($user['role'] === 'admin'): ?>
-            <li><a href="admin_panel.php">Painel Admin</a></li>
-        <?php endif; ?>
-
-        <!-- Itens acessíveis para editores e administradores -->
-        <?php if ($user['role'] === 'editor' || $user['role'] === 'admin'): ?>
-            <li><a href="editor_tools.php">Ferramentas do Editor</a></li>
-        <?php endif; ?>
-    </ul>
-</div>
+    <div class="logout-section">
+        <a href="../pages/logout.php" class="logout-btn">Logout</a> <!-- Caminho correto para logout -->
+    </div>
+</aside>
