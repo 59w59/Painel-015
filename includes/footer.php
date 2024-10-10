@@ -1,5 +1,10 @@
+<!-- includes/footer.php -->
 <footer>
-        <p>© 2024 Minha Empresa - Todos os direitos reservados</p>
-    </footer>
+    <div class="footer-section">
+        <p>&copy; <?php echo date("Y"); ?> Central 015 - Todos os direitos reservados.</p>
+    </div>
+</footer>
+<!-- Scripts JS -->
+<script src="/js-style/script.js" defer></script>
 </body>
 </html>

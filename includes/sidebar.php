@@ -1,19 +1,9 @@
-<aside class="sidebar">
-    <div class="profile-section">
-        <img src="../image/logo_central.png" alt="Profile Picture" class="profile-pic"> <!-- Imagem de perfil -->
-        <h2><?php echo $_SESSION['usuario']; ?></h2>
-    </div>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Opção 1</a></li>
-            <li><a href="#">Opção 2</a></li>
-            <li><a href="#">Opção 3</a></li>
-            <li><a href="#">Opção 4</a></li>
-        </ul>
-    </nav>
-
-    <div class="logout-section">
-        <a href="../pages/logout.php" class="logout-btn">Logout</a> <!-- Caminho correto para logout -->
-    </div>
-</aside>
+<!-- includes/sidebar.php -->
+<div class="sidebar">
+    <a href="/dashboard.php">Dashboard</a>
+    <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin'): ?>
+        <a href="/admin_painel.php">Painel Admin</a>
+    <?php endif; ?>
+    <a href="/perfil.php">Perfil do Usuário</a>
+    <a href="/logout.php">Logout</a>
+</div>

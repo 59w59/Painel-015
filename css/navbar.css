@@ -1,19 +1,38 @@
+/* navbar.css */
+nav {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 nav ul {
     list-style-type: none;
-    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin: 0;
 }
 
 nav ul li a {
+    color: var(--text-color);
     text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #1e91ed;
+    color: var(--primary-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
 }

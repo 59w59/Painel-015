@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page - Central 015 X</title>
-    <link rel="stylesheet" href="../css/landing.css">
+    <title>Central 015</title>
+    <link rel="stylesheet" href="../css/landing-page.css">
 </head>
 <body>
 
@@ -19,21 +19,21 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="commands-button">
-                <a href="../pages/login.php" class="btn">login</a>
+                <a href="../pages/authLogin.php" class="btn">login</a>
             </div>
         </div>
     </div>
 
     <!-- Seção de Hero -->
     <div class="hero-section" id="inicio">
-        <h1>Bem-vindo a Central 015 X</h1>
+        <h1>Bem-vindo a Central 015</h1>
         <p>Simplifique sua gestão com nossa plataforma poderosa e intuitiva.</p>
         <a href="#precos" class="btn-primary">Cadastre-se Agora</a>
     </div>
 
     <!-- Seção de Recursos -->
     <div class="features-section" id="recursos">
-        <h2>Transforme Seu Negócio com o Central 015 X</h2>
+        <h2>Transforme Seu Negócio com o Central 015</h2>
         <div class="features-grid">
             <div class="feature-item">
                 <img src="../image/note.png" alt="Icone 1">
@@ -63,30 +63,30 @@
         <h2>Planos e Preços</h2>
         <div class="pricing-cards">
             <div class="pricing-card">
+                <h3>Diaria</h3>
+                <div class="price">R$70</div>
+                <ul>
+                    <li>Atualizações Automáticas</li>
+                    <li>Assistência de Suporte</li>
+                    <li>Personalização</li>
+                    <li>Suporte 24/7</li>
+                </ul>
+                <a href="#" class="btn-primary">Comece Agora</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Semana</h3>
+                <div class="price">R$250</div>
+                <ul>
+                    <li>Atualizações Automáticas</li>
+                    <li>Assistência de Suporte</li>
+                    <li>Personalização</li>
+                    <li>Suporte 24/7</li>
+                </ul>
+                <a href="#" class="btn-primary">Comece Agora</a>
+            </div>
+            <div class="pricing-card">
                 <h3>Mensal</h3>
-                <div class="price">R$15</div>
-                <ul>
-                    <li>Atualizações Automáticas</li>
-                    <li>Assistência de Suporte</li>
-                    <li>Personalização</li>
-                    <li>Suporte 24/7</li>
-                </ul>
-                <a href="#" class="btn-primary">Comece Agora</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Trimestral</h3>
-                <div class="price">R$48</div>
-                <ul>
-                    <li>Atualizações Automáticas</li>
-                    <li>Assistência de Suporte</li>
-                    <li>Personalização</li>
-                    <li>Suporte 24/7</li>
-                </ul>
-                <a href="#" class="btn-primary">Comece Agora</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Anual</h3>
-                <div class="price">R$170</div>
+                <div class="price">R$740</div>
                 <ul>
                     <li>Atualizações Automáticas</li>
                     <li>Assistência de Suporte</li>
@@ -120,19 +120,19 @@
         <div class="contact-grid">
             <div class="contact-item">
                 <a href="https://wa.me/553199999999" target="_blank">
-                    <img src="image/whatsapp-icon.png" alt="WhatsApp">
+                    <img src="../image/bolha-de-bate-papo.png" alt="WhatsApp">
                     <p>WhatsApp</p>
                 </a>
             </div>
             <div class="contact-item">
                 <a href="https://discord.gg/seulinkdiscord" target="_blank">
-                    <img src="image/discord-icon.png" alt="Discord">
+                    <img src="../image/discordia.png" alt="Discord">
                     <p>Discord</p>
                 </a>
             </div>
             <div class="contact-item">
                 <a href="https://t.me/seulinktelegram" target="_blank">
-                    <img src="image/telegram-icon.png" alt="Telegram">
+                    <img src="../image/logotipo-do-telegram.png" alt="Telegram">
                     <p>Telegram</p>
                 </a>
             </div>
@@ -141,7 +141,7 @@
 
     <!-- Footer -->
     <div class="footer-section">
-        <p>&copy; 2024 Central 015 X - Todos os direitos reservados.</p>
+        <p>&copy; 2024 Central 015 - Todos os direitos reservados.</p>
     </div>
 
 </body>

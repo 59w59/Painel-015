@@ -45,6 +45,12 @@ body {
     color: #1e91ed; /* Azul claro */
 }
 
+.commands-button {
+    display: flex;
+    flex-direction: column; /* Organiza os botões em uma coluna */
+    align-items: center; /* Opcional: centraliza os botões */
+}
+
 .commands-button .btn {
     background-color: #1e91ed;
     padding: 10px 20px;
@@ -55,17 +61,19 @@ body {
 }
 
 .commands-button .btn:hover {
-    background-color: #0c78c1;
+    background-color: #1e91ed;
 }
 
-/* Hero Section */
 .hero-section {
+    display: flex;
+    flex-direction: column; /* Organiza os botões em uma coluna */
+    align-items: center; /* Opcional: centraliza os botões */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('../image/hero-background.jpg') no-repeat center center/cover;
+    background: url('../image/banca\ de\ estelionato.webp') no-repeat center center/cover;
 }
 
 .hero-section h1 {
@@ -77,11 +85,11 @@ body {
 .hero-section p {
     font-size: 20px;
     margin-bottom: 30px;
-    color: #ccc;
+    color: #1e91ed;
 }
 
 .hero-section .btn-primary {
-    background-color: #ff5722;
+    background-color: #1e91ed;
     padding: 15px 30px;
     color: #fff;
     border-radius: 25px;
@@ -91,7 +99,7 @@ body {
 }
 
 .hero-section .btn-primary:hover {
-    background-color: #e64a19;
+    background-color: #1e91ed;
 }
 
 /* Seção de Recursos */
@@ -136,7 +144,6 @@ body {
     color: #aaa;
 }
 
-/* Estilização da barra de rolagem */
 .features-grid::-webkit-scrollbar {
     height: 8px;
 }
@@ -147,7 +154,6 @@ body {
 }
 
 
-/* Seção de Preços */
 .pricing-section {
     text-align: center;
     padding: 60px 20px;
@@ -168,9 +174,9 @@ body {
 
 .pricing-card {
     background-color: #131313;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
-    width: 30%;
+    width: 20%;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -234,7 +240,7 @@ body {
 
 .about-text p {
     font-size: 16px;
-    color: #aaa;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 

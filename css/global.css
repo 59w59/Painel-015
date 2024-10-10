@@ -1,0 +1,27 @@
+/* global.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Variáveis para cores */
+:root {
+    --primary-color: #1e91ed;
+    --secondary-color: #060a0e;
+    --text-color: #fff;
+    --background-color: #000;
+}
+
+/* Layout padrão */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
