@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Central 015</title>
-    <link rel="stylesheet" href="../css/landing-page.css">
+    <link rel="stylesheet" href="../../css/landing-page.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
                 <li><a href="#contato">Contato</a></li>
             </ul>
             <div class="commands-button">
-                <a href="../pages/authLogin.php" class="btn">login</a>
+                <a href="../../pages/authLogin.php" class="btn">login</a>
             </div>
         </div>
     </div>
@@ -36,22 +36,22 @@
         <h2>Transforme Seu Negócio com o Central 015</h2>
         <div class="features-grid">
             <div class="feature-item">
-                <img src="../image/note.png" alt="Icone 1">
+                <img src="../../image/note.png" alt="Icone 1">
                 <h3>Estabilidade Imbatível</h3>
                 <p>Desenvolvido para proporcionar máxima estabilidade, nosso Central 015 opera sem falhas, garantindo uma experiência de usuário contínua e livre de interrupções.</p>
             </div>
             <div class="feature-item">
-                <img src="../image/Chat.png" alt="Icone 2">
+                <img src="../../image/Chat.png" alt="Icone 2">
                 <h3>Otimização Contínua</h3>
                 <p>Com atualizações regulares e melhorias constantes, nosso Central 015 se adapta às suas necessidades, oferecendo sempre o melhor desempenho.</p>
             </div>
             <div class="feature-item">
-                <img src="../image/cursor.png" alt="Icone 3">
+                <img src="../../image/cursor.png" alt="Icone 3">
                 <h3>Suporte 24 Horas</h3>
                 <p>Estamos sempre prontos para ajudar! Com suporte disponível 24/7, você pode resolver qualquer problema rapidamente e sem complicações.</p>
             </div>
             <div class="feature-item">
-                <img src="../image/fraft.png" alt="Icone 4">
+                <img src="../../image/fraft.png" alt="Icone 4">
                 <h3>Integração Ágil</h3>
                 <p>Integre nosso Central 015 de forma rápida e fácil com outras plataformas e ferramentas, otimizando seus fluxos de trabalho.</p>
             </div>
@@ -71,7 +71,7 @@
                     <li>Personalização</li>
                     <li>Suporte 24/7</li>
                 </ul>
-                <a href="#" class="btn-primary">Comece Agora</a>
+                <a href="./pagamento/subscribeModal.php" class="btn-primary">Assinar Plano</a>
             </div>
             <div class="pricing-card">
                 <h3>Semana</h3>
@@ -82,7 +82,7 @@
                     <li>Personalização</li>
                     <li>Suporte 24/7</li>
                 </ul>
-                <a href="#" class="btn-primary">Comece Agora</a>
+                <a href="#" class="btn-primary">Assinar Plano</a>
             </div>
             <div class="pricing-card">
                 <h3>Mensal</h3>
@@ -93,7 +93,7 @@
                     <li>Personalização</li>
                     <li>Suporte 24/7</li>
                 </ul>
-                <a href="#" class="btn-primary">Comece Agora</a>
+                <a href="#" class="btn-primary">Assinar Plano</a>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
                 <p>Missão: Garantir a entrega de projetos excepcionais com qualidade superior, utilizando práticas inovadoras e mantendo um atendimento ágil e eficaz. Nosso objetivo é não apenas atender, mas superar as expectativas dos nossos clientes, proporcionando uma experiência de excelência.</p>
             </div>
             <div class="about-image">
-                <img src="../image/logo_central015.png" alt="Logo Cbotz">
+                <img src="../../image/logo_central015.png" alt="Logo Cbotz">
             </div>
         </div>
     </div>
@@ -120,19 +120,19 @@
         <div class="contact-grid">
             <div class="contact-item">
                 <a href="https://wa.me/553199999999" target="_blank">
-                    <img src="../image/bolha-de-bate-papo.png" alt="WhatsApp">
+                    <img src="../../image/bolha-de-bate-papo.png" alt="WhatsApp">
                     <p>WhatsApp</p>
                 </a>
             </div>
             <div class="contact-item">
                 <a href="https://discord.gg/seulinkdiscord" target="_blank">
-                    <img src="../image/discordia.png" alt="Discord">
+                    <img src="../../image/discordia.png" alt="Discord">
                     <p>Discord</p>
                 </a>
             </div>
             <div class="contact-item">
                 <a href="https://t.me/seulinktelegram" target="_blank">
-                    <img src="../image/logotipo-do-telegram.png" alt="Telegram">
+                    <img src="../../image/logotipo-do-telegram.png" alt="Telegram">
                     <p>Telegram</p>
                 </a>
             </div>
@@ -143,6 +143,41 @@
     <div class="footer-section">
         <p>&copy; 2024 Central 015 - Todos os direitos reservados.</p>
     </div>
+<!-- Botão para abrir o modal -->
+<a href="" class="btn-primary assinar-plano" onclick="abrirModal('plano2Modal')">Assinar Plano</a>
+
+<!-- Modal HTML -->
+<div id="plano2Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal('plano2Modal')">&times;</span>
+        <h2>Assinar Plano 2</h2>
+        <form action="processarPlano.php" method="POST">
+            <div class="input-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" placeholder="Como você quer ser chamado?" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Endereço de E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Seu email principal aqui" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha de Acesso</label>
+                <input type="password" id="password" name="password" placeholder="Crie uma senha forte e segura" required>
+            </div>
+            <div class="payment-methods">
+                <h3>Como deseja pagar?</h3>
+                <button type="button" class="payment-btn">PIX</button>
+                <button type="button" class="payment-btn">Bitcoin</button>
+                <button type="button" class="payment-btn">Ethereum</button>
+                <button type="button" class="payment-btn">Litecoin</button>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" onclick="fecharModal('plano2Modal')">Fechar</button>
+                <button type="submit" class="btn-primary">Continuar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

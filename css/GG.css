@@ -1,0 +1,136 @@
+body {
+    background-color: #1e1e1e;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+.dashboard {
+    width: 250px;
+    background-color: #2e2e2e;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard ul li {
+    margin: 15px 0;
+}
+
+.dashboard ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.dashboard ul li a:hover {
+    color: #0f0;
+}
+
+.container {
+    margin-left: 270px;
+    width: calc(100% - 270px);
+    padding: 20px;
+}
+
+.checker {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 950px;
+    height: 150px;
+    background-color: #1e1e1e;
+    color: #ccc;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.control-button:hover {
+    background-color: #555;
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result span {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.count {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0f0;
+}
+.detailed-results {
+    margin-top: 20px;
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.details {
+    margin-bottom: 20px;
+}
+
+.details h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+pre {
+    background-color: #1e1e1e;
+    color: #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 200px;
+}
