@@ -1,76 +1,92 @@
+
+/* General body styling */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
+    background-color: #f0f0f0;
+    display: flex;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #2e2e2e;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+/* Sidebar heading */
+.sidebar h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar list styling */
+.sidebar ul {
+    list-style: none;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-.navbar {
-    background-color: #333;
-    padding: 15px;
-    text-align: center;
+/* Sidebar list items */
+.sidebar ul li {
+    margin: 15px 0;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.navbar ul li a {
-    color: white;
+/* Sidebar links */
+.sidebar ul li a {
+    color: #ccc;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
-.hero-section {
-    background: linear-gradient(to right, #1e91ed, #060a0e);
-    color: white;
-    text-align: center;
-    padding: 50px 0;
+/* Sidebar link hover effect */
+.sidebar ul li a:hover {
+    color: #0f0;
 }
 
-.section-features, .section-pricing, .section-contact {
-    padding: 50px 0;
-    text-align: center;
-    background-color: white;
+/* Main content area */
+.main-content {
+    margin-left: 290px;
+    width: calc(100% - 270px);
+    padding: 20px
 }
 
-.feature-cards {
-    display: flex;
-    justify-content: space-around;
-}
-
-.feature-cards .card {
-    width: 30%;
+/* Content box styling */
+.content-box {
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 10px;
-    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.pricing-options {
+/* Content box heading */
+.content-box h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+/* Statistics container styling */
+.stats {
     display: flex;
     justify-content: space-around;
+    margin-top: 20px;
 }
 
-.pricing-card {
-    width: 30%;
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    background-color: #333;
-    color: white;
+/* Individual statistic box */
+.stat {
     text-align: center;
-    padding: 10px 0;
+}
+
+/* Statistic number styling */
+.stat h4 {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #1e90ff;
 }

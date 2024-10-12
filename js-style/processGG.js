@@ -1,68 +1,61 @@
-<?php
-header('Content-Type: application/json');
-
-// Verifica se o conteúdo JSON foi enviado
-$input = json_decode(file_get_contents('php://input'), true);
-if ($input === null || !isset($input['lines'])) {
-    http_response_code(400);
-    echo json_encode([
-        'error' => 'Dados de entrada inválidos. Certifique-se de enviar um JSON válido com o campo "lines".'
-    ]);
-    exit;
-}
-
-$lines = $input['lines'];
-
-// Inicializa os arrays para os resultados
-$live = [];
-$die = [];
-$unknown = [];
-
-// Função para enviar requisições à API externa (substitua pela URL real da API)
-function enviarParaAPI($line) {
-    $url = 'https://url-da-api.com/verificar'; // Substitua pela URL real da API
-
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['line' => $line]));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json'
-    ]);
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    return json_decode($response, true);
-}
-
-// Processa cada linha
-foreach ($lines as $line) {
-    $result = enviarParaAPI($line);
-    
-    if ($result && isset($result['status'])) {
-        switch (strtolower($result['status'])) {
-            case 'live':
-                $live[] = $line;
-                break;
-            case 'die':
-                $die[] = $line;
-                break;
-            default:
-                $unknown[] = $line;
-                break;
+function sendToGGreq(lines) {
+    fetch('http://localhost:3000/test-card', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ cc: lines })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
         }
-    } else {
-        $unknown[] = $line;
-    }
+        return response.json();
+    })
+    .then(data => {
+        if (data.error) {
+            alert('Erro ao testar cartões: ' + data.error);
+            return;
+        }
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Erro ao enviar para GGreq.js:', error);
+        alert('Falha ao conectar ao servidor. Verifique se o servidor está ativo e tente novamente.');
+    });
 }
 
-// Retorna os resultados
-echo json_encode([
-    'liveCount' => count($live),
-    'dieCount' => count($die),
-    'unknownCount' => count($unknown),
-    'live' => $live,
-    'die' => $die,
-    'unknown' => $unknown
-]);
+function checkLines(lines) {
+    fetch('process.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ lines: lines })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.error) {
+            alert('Erro: ' + data.error);
+            return;
+        }
+        document.getElementById('live').querySelector('.count').textContent = data.liveCount;
+        document.getElementById('die').querySelector('.count').textContent = data.dieCount;
+        document.getElementById('unknown').querySelector('.count').textContent = data.unknownCount;
+
+        document.getElementById('live-list').textContent = data.live.join('\n');
+        document.getElementById('die-list').textContent = data.die.join('\n');
+        document.getElementById('unknown-list').textContent = data.unknown.join('\n');
+
+        sendToGGreq(lines);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Falha ao processar as linhas. Verifique se o servidor está ativo e tente novamente.');
+    });
+}

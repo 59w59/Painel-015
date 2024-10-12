@@ -1,43 +1,22 @@
-document.getElementById('start-check').addEventListener('click', function() {
-    let inputText = document.getElementById('input-text').value;
-    if (inputText.trim() === '') {
-        alert('Por favor, insira algum texto ou carregue um arquivo .txt.');
-        return;
-    }
-
-    // Divida o texto em linhas
-    let lines = inputText.split('\n').map(line => line.trim()).filter(line => line !== '');
-
-    // Envia as linhas para o PHP processar
-    checkLines(lines);
-});
-
-function checkLines(lines) {
-    // Enviar os dados para o PHP processar
-    fetch('process.php', {
+function sendToGGreq(lines) {
+    // Enviar os dados para GGreq.js
+    fetch('http://localhost:3000/test-card', { // URL do GGreq.js
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ lines: lines })
+        body: JSON.stringify({ cc: lines }) // Enviando as linhas para serem testadas
     })
     .then(response => response.json())
     .then(data => {
         if (data.error) {
-            alert('Erro: ' + data.error);
+            alert('Erro ao testar cartões: ' + data.error);
             return;
         }
-        // Atualizar os contadores na interface
-        document.getElementById('live').querySelector('.count').textContent = data.liveCount;
-        document.getElementById('die').querySelector('.count').textContent = data.dieCount;
-        document.getElementById('unknown').querySelector('.count').textContent = data.unknownCount;
-
-        // Exibir os detalhes dos resultados
-        document.getElementById('live-list').textContent = data.live.join('\n');
-        document.getElementById('die-list').textContent = data.die.join('\n');
-        document.getElementById('unknown-list').textContent = data.unknown.join('\n');
+        console.log(data); // Exibir os resultados dos testes no console para depuração
+        // Você pode adicionar lógica aqui para atualizar a interface com base nos resultados recebidos
     })
     .catch(error => {
-        console.error('Erro:', error);
+        console.error('Erro ao enviar para GGreq.js:', error);
     });
 }

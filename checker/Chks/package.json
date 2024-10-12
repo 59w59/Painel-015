@@ -1,0 +1,19 @@
+{
+    "type": "module",
+    "name": "chks",
+    "version": "1.0.0",
+    "main": "amazon.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.21.1",
+        "picocolors": "^1.1.0",
+        "selenium-webdriver": "^4.25.0"
+    }
+}
