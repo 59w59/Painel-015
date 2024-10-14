@@ -1,4 +1,5 @@
-/* Estilização Geral */
+/* ======= Seção Geral ========== */
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -7,13 +8,22 @@ body {
     color: #fff;
 }
 
-/* Navbar */
+.sep {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+/* ======= Seção Nav Bar ========== */
+
+
 .navbar-container {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+    background-color: rgba(0, 0, 0, 0.05);
     padding: 15px;
 }
 
@@ -42,38 +52,54 @@ body {
 }
 
 .navbar ul li a:hover {
-    color: #1e91ed; /* Azul claro */
+    color: #1e91ed;
 }
 
 .commands-button {
-    display: flex;
-    flex-direction: column; /* Organiza os botões em uma coluna */
-    align-items: center; /* Opcional: centraliza os botões */
+    margin-left: auto;
 }
 
 .commands-button .btn {
     background-color: #1e91ed;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     color: #fff;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease-in;
 }
 
 .commands-button .btn:hover {
-    background-color: #1e91ed;
+    transform: scale(1.05);
 }
 
 .hero-section {
     display: flex;
-    flex-direction: column; /* Organiza os botões em uma coluna */
-    align-items: center; /* Opcional: centraliza os botões */
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url('../image/banca\ de\ estelionato.webp') no-repeat center center/cover;
+    background: url('../image/logo_central015.png') no-repeat center center/cover;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+.hero-section, .hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
 }
 
 .hero-section h1 {
@@ -85,53 +111,60 @@ body {
 .hero-section p {
     font-size: 20px;
     margin-bottom: 30px;
-    color: #1e91ed;
+    color: #fff;
 }
 
 .hero-section .btn-primary {
     background-color: #1e91ed;
     padding: 15px 30px;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 10px;
     font-size: 18px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .hero-section .btn-primary:hover {
-    background-color: #1e91ed;
+    transform: scale(1.03);
 }
 
-/* Seção de Recursos */
+/* ======= Seção de Recursos  ========== */
+
 .features-section {
-    padding: 60px 20px;
+    padding: 30px 20px;
     text-align: center;
     background-color: #000;
 }
 
 .features-section h2 {
     font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    color: #1e91ed;
 }
 
 .features-grid {
     display: flex;
-    justify-content: space-between; /* Espaçamento entre os itens */
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: nowrap; /* Evita que os itens quebrem a linha */
-    overflow-x: auto;  /* Adiciona rolagem horizontal se necessário */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     max-width: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .feature-item {
-    background-color: #131313;
+    background-color: #050505;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    flex: 0 0 auto; /* Itens não encolhem, mantêm tamanho fixo */
-    width: 250px; /* Definir um tamanho fixo para garantir alinhamento */
-    margin-right: 15px; /* Espaçamento entre os itens */
+    flex: 0 0 auto; 
+    width: 250px;
+    max-width: 250px;
+    margin-right: 15px;
+}
+
+.feature-item img {
+    width: 60px;
 }
 
 .feature-item h3 {
@@ -153,6 +186,7 @@ body {
     border-radius: 4px;
 }
 
+/* ======= Seção de Planos  ========== */
 
 .pricing-section {
     text-align: center;
@@ -162,23 +196,24 @@ body {
 
 .pricing-section h2 {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #1e91ed;
 }
 
 .pricing-cards {
     display: flex;
+    text-align: center;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .pricing-card {
-    background-color: #131313;
+    background-color: #050505;
     padding: 20px;
     border-radius: 10px;
     width: 20%;
     text-align: center;
-    margin-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .pricing-card h3 {
@@ -187,43 +222,55 @@ body {
 }
 
 .pricing-card .price {
-    font-size: 40px;
+    font-size: 30px;
     color: #1e91ed;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .pricing-card ul {
     list-style: none;
     padding: 0;
+    margin-bottom: 30px;
 }
 
 .pricing-card ul li {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: #aaa;
 }
 
-.pricing-card a.btn-primary {
+.pricing-card a {
     background-color: #1e91ed;
     padding: 12px 20px;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 15px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.pricing-card a.btn-primary:hover {
-    background-color: #0c78c1;
+
+
+.pricing-card a:hover {
+    transform: scale(1.05);
 }
 
-/* Seção Sobre Mim */
+/* ======= Seção Sobre Mim ========== */
+
 .about-section {
-    padding: 60px 20px;
+    padding: 40px 20px;
     background-color: #000;
     text-align: center;
 }
 
+.about-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #1e91ed;
+}
+
+
 .about-content {
+    text-align: center;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -236,6 +283,7 @@ body {
 .about-text h3 {
     font-size: 28px;
     margin-bottom: 20px;
+    color: #1e91ed;
 }
 
 .about-text p {
@@ -245,33 +293,54 @@ body {
 }
 
 .about-image img {
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 260px;
 }
 
-/* Seção de Contato */
+.resurgindo {
+    width: 100%;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to top, transparent, black);
+    mask-image: linear-gradient(to top, transparent, black);
+}
+
+/* ========== Seção de Contato ============ */
+
 .contact-section {
-    padding: 60px 20px;
+    padding: 5px 20px;
     text-align: center;
-    background-color: #131313;
 }
 
 .contact-section h2 {
     font-size: 36px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    color: #1e91ed;
+    gap: 1px;
 }
 
 .contact-grid {
     display: flex;
-    justify-content: space-around;
+    gap: 40px;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .contact-item {
     text-align: center;
-    width: 30%;
+    width: 10%;
     margin-bottom: 20px;
+}
+
+
+.whats {
+    color: #1EBEA5;
+}
+
+.discord {
+    color: #738ADB;
+}
+
+.telegram {
+    color: #24A1DE;
 }
 
 .contact-item a {
@@ -280,6 +349,7 @@ body {
     transition: transform 0.3s ease;
 }
 
+
 .contact-item a:hover {
     transform: translateY(-5px);
 }
@@ -287,7 +357,7 @@ body {
 .contact-item img {
     width: 80px;
     height: 80px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .contact-item p {
@@ -295,17 +365,193 @@ body {
     color: #bbb;
 }
 
-/* Footer */
+/* ======= Seção Footer ========== */
+
 .footer-section {
     text-align: center;
     padding: 20px;
-    background-color: #131313;
     color: #fff;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+/* ========= Modals ========= */
+
+.modal {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10000000000;
+}
+
+.modal-content {
+    background-color: #131313;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+form {
+    margin-top: 20px;
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-container i.icon {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-container input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    width: 80px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.input-container, i {
+    font-size: 15px;
+}
+
+.payment-option i {
+    font-size: 5px;
+    margin-bottom: 5px;
+}
+
+.payment-option.active {
+    background-color: #1e91ed;
+    color: #fff;
+}
+
+.payment-option.active i {
+    color: #fff;
+}
+
+.payment-option:hover {
+    background-color: #d8d8d8;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.submit-btn, .close-btn {
+    width: 48%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #1e91ed;
+    color: #fff;
+}
+
+.submit-btn:hover {
+    background-color: #197ac9;
+}
+
+.close-btn {
+    background-color: #ccc;
+    color: #333;
+}
+
+.close-btn:hover {
+    background-color: #999;
+}
+
+/* ======= Responsividade ========== */
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    left: 20px;
+}
+
+.menu-toggle i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 1115px){
+    .commands-button {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media (max-width: 860px) {
+
+    .about-image img {
+        display: none;
+    }
+    .about-content {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+    
     .navbar ul {
+        border-radius: 10px;
+        padding: 50px;
+        gap: 25px;
         display: none;
         flex-direction: column;
         width: 100%;
@@ -313,7 +559,7 @@ body {
         position: absolute;
         top: 60px;
         left: 0;
-        z-index: 100;
+        z-index: 1000000;
     }
 
     .navbar ul.active {
@@ -327,78 +573,70 @@ body {
         right: 30px;
     }
 
-    .features-grid, .pricing-cards, .about-content, .contact-grid {
-        flex-direction: column;
+    .commands-button {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 35px;
+    }
+    
+
+    .contact-section h2 {
+        font-size: 24px;
     }
 
-    .navbar {
+    .contact-grid {
+        gap: 35px;
+    }
+
+    .contact-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contact-item p {
+        font-size: 16px;
+    }
+
+    .features-grid, .pricing-cards, .about-content {
         flex-direction: column;
-        align-items: flex-start;
+        width: 100%;
+    }
+
+    .feature-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .pricing-card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+    .about-image img {
+        width: 100%;
     }
 }
-/* Estilo para o modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
 
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 8px;
-    width: 50%;
-    max-width: 600px;
-    text-align: center;
-    color: #000;
-}
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 32px;
+    }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
+    .hero-section p {
+        font-size: 16px;
+    }
 
-.close:hover {
-    color: #000;
-}
+    .pricing-card h3 {
+        font-size: 18px;
+    }
 
-/* Estilos para os botões do modal */
-.btn-cancel {
-    background-color: #bbb;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    margin-right: 10px;
-    cursor: pointer;
-    color: #fff;
-}
+    .pricing-card .price {
+        font-size: 24px;
+    }
 
-.payment-methods {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.payment-btn {
-    padding: 10px 20px;
-    background-color: #1e91ed;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.payment-btn:hover {
-    background-color: #0c78c1;
 }

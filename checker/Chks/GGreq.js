@@ -3,16 +3,34 @@ import cors from 'cors'; // Importe o pacote cors
 import { Builder, By, until, Select } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome.js';
 import picocolors from 'picocolors';
+import jwt from 'jsonwebtoken'; // Importando o JWT
 
 const app = express();
 const port = 8080; // Atualizado para rodar na porta 8080
+const JWT_SECRET = process.env.JWT_SECRET || 'seuSegredoAqui'; // Chave secreta do JWT
 
 let pageCounter = 0;
 const pageLimit = 5;
 // Habilitar CORS
 app.use(cors()); // Isso permite todas as origens
-
 app.use(express.json());
+
+// Middleware de autenticação JWT
+const authenticateJWT = (req, res, next) => {
+    const token = req.headers.authorization?.split(' ')[1]; // Extrai o token do cabeçalho
+
+    if (!token) {
+        return res.status(403).json({ message: 'Acesso negado, token não fornecido.' });
+    }
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({ message: 'Token inválido ou expirado.' });
+        }
+        req.user = user; // Adiciona o usuário ao objeto de requisição
+        next();
+    });
+};
 
 // Function to perform card checking using Selenium WebDriver
 async function cardTesting(cardInfo) {
@@ -139,8 +157,8 @@ async function simulateCheckout(driver, card) {
     }
 }
 
-// API endpoint to handle card check requests
-app.post('/api/check-card', async (req, res) => {
+// API endpoint to handle card check requests, agora protegido por JWT
+app.post('/api/check-card', authenticateJWT, async (req, res) => {
     const { cc } = req.body;
 
     if (!cc || !Array.isArray(cc)) {
@@ -154,6 +172,18 @@ app.post('/api/check-card', async (req, res) => {
         res.json(results);
     } catch (error) {
         res.status(500).json({ error: `Erro ao testar os cartões: ${error.message}` });
+    }
+});
+
+// Endpoint para gerar o token JWT
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    if (username === 'admin' && password === 'admin123') { // Exemplo de autenticação
+        const token = jwt.sign({ username }, JWT_SECRET, { expiresIn: '1h' }); // Gera o token
+        return res.json({ token });
+    } else {
+        return res.status(401).json({ message: 'Credenciais inválidas.' });
     }
 });
 
